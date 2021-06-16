@@ -54,6 +54,7 @@ namespace TeacherRecords
                         Console.WriteLine("\nYou chose to retrieve teacher data... ");
                         Console.Write("\nEnter ID of teacher: ");
                         string key = Console.ReadLine();
+                        int index = -1;
                         for (int i = 0; i < records.Count; i++)
                         {
                             Teacher t1 = records[i];
@@ -62,10 +63,12 @@ namespace TeacherRecords
                             {
                                 Console.WriteLine("\nTeacher found: ");
                                 t1.print();
+                                index = i;
                                 break;
                             }
                         }
-                        Console.WriteLine("\nThere is no teacher with this ID in records... try again");
+                        if (index == -1)
+                            Console.WriteLine("There is no teacher with this ID in records... try again");
                         break;
                     case "3":
                         Console.WriteLine("\nYou chose to update teacher data... ");
